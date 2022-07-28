@@ -1,0 +1,45 @@
+{
+  "name": "pdftopic",
+  "version": "0.1.1",
+  "description": "NODEJS This package allows you to convert a PDF to any image format (png, jpg, gif, ...) in very good quality",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ilyes-El-Majouti/pdftopic.git"
+  },
+  "keywords": [
+    "pdf to image",
+    "pdf to jpg",
+    "pdf to png",
+    "pdf2png",
+    "pdftopng",
+    "pdftoimage",
+    "pdftoimages",
+    "pdf-to-image",
+    "pdf-to-images",
+    "pdf-to-png",
+    "pdf-to-png",
+    "pdf",
+    "image",
+    "jpg",
+    "jpeg",
+    "png",
+    "pdf-images",
+    "pdf2images"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ilyes-El-Majouti/pdftopic/issues"
+  },
+  "homepage": "https://github.com/Ilyes-El-Majouti/pdftopic#readme",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "imagemagick-stream": "^4.1.1",
+    "is-stream": "^1.1.0",
+    "stream-to-array": "^2.3.0"
+  }
+}
