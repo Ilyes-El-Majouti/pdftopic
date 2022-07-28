@@ -1,6 +1,7 @@
 ## **PDFTOPIC *By Ilyes-El-Majouti***
 ---
-<br>
+[<img src="https://img.shields.io/badge/PDFTOPIC-010101?&style=for-the-badge&logo=Npm&logoColor=white"/>](https://www.npmjs.com/package/pdftopic)
+
 
 ### **Documentation en français**
 Ce package permet de convertir un PDF en n'importe quels formats d'image (png, jpg, gif, ...) en très bonne qualité. le package avec la meilleure qualité de rendu, après avoir essayé plusieurs packages les qualités de rendu était horrible du coup j'ai décidé de créer ce package qui ressoudera ce souci a plus d'une personne 😉.
