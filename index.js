@@ -12,7 +12,9 @@ function pdftostream(pdf, page) {
     const imagemagickstream = imagemagick()
         .set('density', 200)
         .set('strip')
-        .quality(90);
+        .quality(90)
+        .set("background", "white")
+        .set("flatten");
         
     const onError = imagemagickstream.onerror;
 
