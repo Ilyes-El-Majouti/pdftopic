@@ -1,7 +1,7 @@
 <img src="https://repository-images.githubusercontent.com/518815977/51d3dd60-7078-4652-b458-ce043754c7bd">
 
 ## **PDFTOPIC *By Ilyes-El-Majouti***
----
+
 [<img src="https://img.shields.io/badge/PDFTOPIC-010101?&style=for-the-badge&logo=Npm&logoColor=white"/>](https://www.npmjs.com/package/pdftopic)
 
 
