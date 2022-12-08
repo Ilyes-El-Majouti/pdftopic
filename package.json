@@ -1,6 +1,6 @@
 {
   "name": "pdftopic",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "NODEJS This package allows you to convert a PDF to any image format (png, jpg, gif, ...) in very good quality",
   "main": "index.js",
   "scripts": {
