@@ -6,30 +6,6 @@ const { PDFDocument } = require('pdf-lib');
 const sharp = require('sharp');
 const ProgressBar = require('progress');
 
-const pdftobuffer = async (pdf, page, progress = false) => {
-    const pdfcount = await pdftocount(pdf);
-
-    assert(Buffer.isBuffer(pdf) || isstream.readable(pdf), 'The pdf must be either a readable stream or a buffer');
-
-    if (page !== "all" && !Array.isArray(page)) {
-        assert((pdfcount - 1) >= page, 'the page does not exist please try again');
-        assert(typeof page === 'number', `page should be one number, given ${page}`);
-        assert(Number.isInteger(page), `page should be an integer, given ${page}`);
-        assert(page >= 0, `the page must be equal to or greater than 0 in the case of ${page}`);
-    } else if(Array.isArray(page)) {
-        Array.from(page, (_) => assert((pdfcount - 1) >= _, 'the page does not exist please try again'));
-    }
-
-    const bar = progress ? new ProgressBar('Processing [:bar] :percent :etas', { complete: '=', incomplete: ' ', width: 30, total: page === "all" ? pdfcount : 1 }) : null;
-
-    if (page === "all" || Array.isArray(page)) {
-        const promises = Array.from(Array.isArray(page) ? page : { length: pdfcount }, (_, index) => imagemagickconverter(pdf, Array.isArray(page) ? _ : index, progress ? bar : null));
-        return Promise.all(promises);
-    } else {
-        return [await imagemagickconverter(pdf, page, progress ? bar : null)];
-    }
-}
-
 const imagemagickconverter = async (pdf, page, bar) => {
     const imagemagickstream = imagemagick()
         .set('density', 200)
@@ -67,6 +43,30 @@ const imagemagickconverter = async (pdf, page, bar) => {
     }
 
     return resultBuffer;
+}
+
+const pdftobuffer = async (pdf, page, progress = false) => {
+    const pdfcount = await pdftocount(pdf);
+
+    assert(Buffer.isBuffer(pdf) || isstream.readable(pdf), 'The pdf must be either a readable stream or a buffer');
+
+    if (page !== "all" && !Array.isArray(page)) {
+        assert((pdfcount - 1) >= page, 'the page does not exist please try again');
+        assert(typeof page === 'number', `page should be one number, given ${page}`);
+        assert(Number.isInteger(page), `page should be an integer, given ${page}`);
+        assert(page >= 0, `the page must be equal to or greater than 0 in the case of ${page}`);
+    } else if(Array.isArray(page)) {
+        Array.from(page, (_) => assert((pdfcount - 1) >= _, 'the page does not exist please try again'));
+    }
+
+    const bar = progress ? new ProgressBar('Processing [:bar] :percent :etas', { complete: '=', incomplete: ' ', width: 30, total: page === "all" ? pdfcount : 1 }) : null;
+
+    if (page === "all" || Array.isArray(page)) {
+        const promises = Array.from(Array.isArray(page) ? page : { length: pdfcount }, (_, index) => imagemagickconverter(pdf, Array.isArray(page) ? _ : index, progress ? bar : null));
+        return Promise.all(promises);
+    } else {
+        return [await imagemagickconverter(pdf, page, progress ? bar : null)];
+    }
 }
 
 const pdftocount = async (pdf) => {

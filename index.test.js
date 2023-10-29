@@ -1,24 +1,6 @@
-const exp = require("constants");
 const pdftopic = require("./");
-const fs = require("fs");
 
-/*test('converting pdftopic@0.1.3 (single file)', async () => {
-    const pdf = fs.readFileSync('./pdf_files/ilyes.pdf');
-    const result = await pdftobuffer(pdf, 0);
-    expect(result).not.toBeNull();
-});
-
-test('converting pdftopic@0.1.3 (multiple file)', async () => {
-    const pdf = fs.readFileSync('./pdf_files/curriculum_vitae.pdf');
-    var results = [];
-    for (let index = 0; index < 4; index++) {
-        const result = await pdftobuffer(pdf, index);
-        results.push(result);
-    }
-    expect(results).not.toBeNull();
-});*/
-
-/*test('converting pdftopic@1.0.0 (single file)', async () => {
+test('converting pdftopic@1.0.0 (single file)', async () => {
     const pdf = fs.readFileSync('./pdf_files/ilyes.pdf');
     const result = await pdftopic.pdftobuffer(pdf, 0);
     expect(result).not.toBeNull();
@@ -34,7 +16,7 @@ test('converting pdftopic@1.0.0 (multiple file)', async () => {
     const pdf = fs.readFileSync('./pdf_files/curriculum_vitae.pdf');
     const result = await pdftopic.pdftobuffer(pdf, "all");
     expect(result).not.toBeNull();
-});*/
+});
 
 test('converting pdftopic@1.0.0 (all images in one image)', async () => {
     const file1 = fs.readFileSync('./curriculum_vitae-converted/curriculum_vitae-0.png');
