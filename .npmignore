@@ -1,0 +1,7 @@
+# Remove from package published unnecesary data
+index.test.js
+pdf_files
+curriculum_vitae-converted
+docs
+.github
+package-lock.json

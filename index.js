@@ -1,3 +1,18 @@
+// =============================Types definition====================================
+/**
+ * @typedef {Object} Dimmention
+ * @property {number | undefined} width - the width of the image
+ * @property {number | undefined} height - the height of the image
+ */
+/**
+ * @typedef {Object} DimmentionsData
+ * @property {number} outputImgWidth - the maximum width of all the images in the array
+ * @property {number | undefined} outputImgHeight - the sum total of the heights of all the images in the array
+ * @property {Dimmention[]} dimmentions - an array containing the dimensions (width and height) of each image in {width, height} format
+ * @property {number} channels - the number of elements in the dimensions array, corresponding to the number of images processed
+ * 
+ */
+// =============================Code Start here====================================
 const imagemagick = require("imagemagick-stream");
 const isstream = require("is-stream");
 const assert = require("assert");
@@ -6,6 +21,13 @@ const { PDFDocument } = require('pdf-lib');
 const sharp = require('sharp');
 const ProgressBar = require('progress');
 
+/**
+ * 
+ * @param {Buffer} pdf 
+ * @param {number} page 
+ * @param {*} bar 
+ * @returns {Buffer} 
+ */
 const imagemagickconverter = async (pdf, page, bar) => {
     const imagemagickstream = imagemagick()
         .set('density', 200)
@@ -45,6 +67,13 @@ const imagemagickconverter = async (pdf, page, bar) => {
     return resultBuffer;
 }
 
+/**
+ * Converts PDF to Image/Buffer by supplying a file path
+ * @param {Buffer} pdf Buffer pdf file
+ * @param {number | number[] | 'all'} page 
+ * @param {boolean} [progress=false] progress converting. Default `false`
+ * @returns {Promise<Buffer[] | null>} PDF pages converted to image buffers
+ */
 const pdftobuffer = async (pdf, page, progress = false) => {
     const pdfcount = await pdftocount(pdf);
 
@@ -69,11 +98,23 @@ const pdftobuffer = async (pdf, page, progress = false) => {
     }
 }
 
+/**
+ * Determine the total number of pages in a PDF document by supplying the PDF to the function.
+ * The function loads the PDF and returns the page count.
+ * @param {Buffer} pdf Buffer pdf file
+ * @returns {number} Total pages from the pdf passed in `pdf`
+ */
 const pdftocount = async (pdf) => {
     const pdfDoc = await PDFDocument.load(pdf);
     return pdfDoc.getPageCount();
 };
 
+/**
+ * Concatenate multiple buffers into a single buffer by providing an array of buffers to the function. 
+ * The function processes each buffer, appends them together, and returns the combined buffer.
+ * @param {Buffer[]} buffers Array of buffers images
+ * @returns {Promise<Buffer>} Combined array of buffer images
+ */
 const bufferstoappend = async (buffers) => {
     const dimmention = await getDimmentions(buffers);
 
@@ -108,6 +149,16 @@ const bufferstoappend = async (buffers) => {
     .toBuffer();
 }
 
+/**
+ * Asynchronous function that takes an array of buffers as an argument. 
+ * The function returns an object containing the following information:
+ *  - outputImgWidth: the maximum width of all the images in the array.
+ *  - outputImgHeight: the sum total of the heights of all the images in the array.
+ *  - dimmentions: an array containing the dimensions (width and height) of each image in {width, height} format.
+ *  - channels: the number of elements in the dimensions array, corresponding to the number of images processed.
+ * @param {Buffer[]} buffers Array of buffers images
+ * @returns {Promise<DimmentionsData>} Dimmentions from the array of buffers images.
+ */
 const getDimmentions = async (buffers) => {
     const promises = buffers.map(async (buffer) => {
         const bufferImage = await sharp(buffer);

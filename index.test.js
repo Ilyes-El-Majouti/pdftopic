@@ -1,4 +1,5 @@
 const pdftopic = require("./");
+const fs = require('fs');
 
 test('converting pdftopic@1.0.0 (single file)', async () => {
     const pdf = fs.readFileSync('./pdf_files/ilyes.pdf');

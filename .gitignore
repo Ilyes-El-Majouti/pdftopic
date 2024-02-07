@@ -104,3 +104,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Generated file test
+curriculum_vitae.png
