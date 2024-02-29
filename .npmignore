@@ -104,4 +104,11 @@ dist
 
 # TernJS port file
 .tern-port
+
+curriculum_vitae-converted/
+curriculum_vitae-converted/*
+
+index.test.js
+pdf_files
+docs
 .github

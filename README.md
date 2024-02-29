@@ -4,6 +4,7 @@
 <center>
 
 ![Version-Project](https://img.shields.io/github/package-json/v/Ilyes-El-Majouti/pdftopic?style=flat-square&logo=npm)
+[![CodeFactor](https://www.codefactor.io/repository/github/ilyes-el-majouti/pdftopic/badge)](https://www.codefactor.io/repository/github/ilyes-el-majouti/pdftopic)
 
 [![Donate](https://img.shields.io/badge/donate-PayPal-green?style=flat-square&color=blue)](https://www.paypal.me/IlyesElMajouti)
 ![Minified-Size](https://img.shields.io/bundlephobia/min/pdftopic?style=flat-square)
@@ -11,7 +12,6 @@
 ![License-Project](https://img.shields.io/github/license/Ilyes-El-Majouti/pdftopic?style=flat-square)
 [![Stars-Project](https://img.shields.io/github/stars/Ilyes-El-Majouti/pdftopic?style=flat-square&color=red)](https://github.com/Ilyes-El-Majouti/pdftopic)
 ![Last-Commit](https://img.shields.io/github/last-commit/Ilyes-El-Majouti/pdftopic?style=flat-square)
-
 </center>
 
 The `pdftopic` package offers an advanced solution for converting PDF files into various image formats such as PNG, JPG, etc. With a particular focus on rendering quality, `pdftopic` distinguishes itself by producing output of exceptional quality, surpassing the performance of other packages available on the market. Designed to meet the critical needs of demanding users, `pdftopic` effectively and reliably solves the rendering quality problems that many other packages present, offering an unrivalled and reliable PDF conversion solution for developers and IT professionals.

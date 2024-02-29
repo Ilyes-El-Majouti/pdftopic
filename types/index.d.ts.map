@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "file": "index.d.ts",
+    "sourceRoot": "",
+    "sources": [
+        "../index.js"
+    ],
+    "names": [],
+    "mappings": ";;;;WAEc,MAAM,GAAG,SAAS;;;;YAClB,MAAM,GAAG,SAAS;;;;;;oBAIlB,MAAM;;;;qBACN,MAAM,GAAG,SAAS;;;;iBAClB,UAAU,EAAE;;;;cACZ,MAAM;;AAwFpB;;;;;GAKG;AACH,gCAHW,MAAM,GACJ,MAAM,CAKlB;AAxCD;;;;;;GAMG;AACH,iCALW,MAAM,QACN,MAAM,GAAG,MAAM,EAAE,GAAG,KAAK,mCAEvB,QAAQ,MAAM,EAAE,GAAG,IAAI,CAAC,CAwBpC;AAaD;;;;;GAKG;AACH,yCAHW,MAAM,EAAE,GACN,QAAQ,MAAM,CAAC,CAkC3B;AAED;;;;;;;;;GASG;AACH,wCAHW,MAAM,EAAE,GACN,QAAQ,eAAe,CAAC,CAwBpC"
+}
