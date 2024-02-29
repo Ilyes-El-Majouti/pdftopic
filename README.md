@@ -28,7 +28,7 @@ The `pdftopic` package offers an advanced solution for converting PDF files into
 Follow [this](docs/dependencies-installation.md) guide to install the required dependencies.
 
 ## Installation
-
+ s
 ```bash
 npm install --save pdftopic
 ```
@@ -44,7 +44,7 @@ import fs from "fs";
 (async () => {
   const curriculum_vitae = fs.readFileSync('./pdf_files/curriculum_vitae.pdf');
 
-  const converted_result = await pdftopic.pdftobuffer(pdf, 0);
+  const converted_result = await pdftopic.pdftobuffer(curriculum_vitae, 0);
   fs.writeFileSync(`./png_files/curriculum_vitae.png`, converted_result[0]);
 })();
 ```
@@ -58,7 +58,7 @@ import fs from "fs";
 (async () => {
   const curriculum_vitae = fs.readFileSync('./pdf_files/curriculum_vitae.pdf');
 
-  const converted_result = await pdftopic.pdftobuffer(pdf, [ 1, 3 ]);
+  const converted_result = await pdftopic.pdftobuffer(curriculum_vitae, [ 1, 3 ]);
   converted_result.forEach((file, index) => {
     fs.writeFileSync(`./curriculum_vitae-${index}.png`, file);
   });
@@ -74,7 +74,7 @@ import fs from "fs";
 (async () => {
   const curriculum_vitae = fs.readFileSync('./pdf_files/curriculum_vitae.pdf');
 
-  const converted_result = await pdftopic.pdftobuffer(pdf, "all");
+  const converted_result = await pdftopic.pdftobuffer(curriculum_vitae, "all");
   
   converted_result.forEach((file, index) => {
       fs.writeFileSync(`./png_files/curriculum_vitae-${index}.png`, file);
@@ -91,7 +91,7 @@ import fs from "fs";
 (async () => {
   const curriculum_vitae = fs.readFileSync('./pdf_files/curriculum_vitae.pdf');
 
-  const converted_result = await pdftopic.pdftobuffer(pdf, "all");
+  const converted_result = await pdftopic.pdftobuffer(curriculum_vitae, "all");
   const concat_converted_result = await pdftopic.bufferstoappend(allfiles);
 
   fs.writeFileSync(`./png_files/curriculum_vitae-big.png`, concat_converted_result);
@@ -185,6 +185,10 @@ getDimmentions(buffers)
 
 
 ## New updates
+
+### `[ADDITION]` TypeScript Support Added
+
+In line with the latest update, version `pdftopic@1.0.2-alpha` now includes TypeScript support. This addition enables developers to harness the benefits of TypeScript within their projects, enhancing code quality, readability, and maintainability. With TypeScript support, users can leverage static typing, improved code intelligence, and a more robust development experience.
 
 ### `[UPDATE]` Simple file conversion
 
