@@ -19,6 +19,9 @@ const { PDFDocument } = require('pdf-lib');
 const sharp = require('sharp');
 const ProgressBar = require('progress');
 
+// Block the decoding of WebP images as a temporary workaround
+sharp.block({ operation: ["VipsForeignLoadWebp"] });
+
 /**
  * 
  * @param {Buffer} pdf 

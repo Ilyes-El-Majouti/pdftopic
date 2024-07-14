@@ -1,6 +1,6 @@
 {
     "name": "pdftopic",
-    "version": "1.0.5-alpha",
+    "version": "1.0.6-alpha",
     "description": "Built for Node.js, this package empowers users to effortlessly convert PDF files into images of exceptional quality, supporting multiple formats including PNG, JPG, GIF, and others. Its streamlined functionality ensures a smooth and reliable conversion process, providing users with the flexibility to obtain top-notch images from their PDF documents",
     "main": "index.js",
     "types": "./types/index.d.ts",
