@@ -28,7 +28,6 @@ The `pdftopic` package offers an advanced solution for converting PDF files into
 Follow [this](docs/dependencies-installation.md) guide to install the required dependencies.
 
 ## Installation
- s
 ```bash
 npm install --save pdftopic
 ```
