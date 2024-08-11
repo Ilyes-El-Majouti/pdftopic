@@ -9,7 +9,7 @@
  * @property {number | undefined} outputImgHeight - the sum total of the heights of all the images in the array
  * @property {Dimmention[]} dimmentions - an array containing the dimensions (width and height) of each image in {width, height} format
  * @property {number} channels - the number of elements in the dimensions array, corresponding to the number of images processed
- * 
+ *
  */
 const imagemagick = require("imagemagick-stream");
 const isstream = require("is-stream");
@@ -20,14 +20,16 @@ const sharp = require('sharp');
 const ProgressBar = require('progress');
 
 // Block the decoding of WebP images as a temporary workaround
-sharp.block({ operation: ["VipsForeignLoadWebp"] });
+if (sharp.block) {
+    sharp.block({operation: ["VipsForeignLoadWebp"]});
+}
 
 /**
- * 
- * @param {Buffer} pdf 
- * @param {number} page 
- * @param {*} bar 
- * @returns {Buffer} 
+ *
+ * @param {Buffer} pdf
+ * @param {number} page
+ * @param {*} bar
+ * @returns {Buffer}
  */
 const imagemagickconverter = async (pdf, page, bar) => {
     const imagemagickstream = imagemagick()
@@ -71,7 +73,7 @@ const imagemagickconverter = async (pdf, page, bar) => {
 /**
  * Converts PDF to Image/Buffer by supplying a file path
  * @param {Buffer} pdf Buffer pdf file
- * @param {number | number[] | 'all'} page 
+ * @param {number | number[] | 'all'} page
  * @param {boolean} [progress=false] progress converting. Default `false`
  * @returns {Promise<Buffer[] | null>} PDF pages converted to image buffers
  */
@@ -111,7 +113,7 @@ const pdftocount = async (pdf) => {
 };
 
 /**
- * Concatenate multiple buffers into a single buffer by providing an array of buffers to the function. 
+ * Concatenate multiple buffers into a single buffer by providing an array of buffers to the function.
  * The function processes each buffer, appends them together, and returns the combined buffer.
  * @param {Buffer[]} buffers Array of buffers images
  * @returns {Promise<Buffer>} Combined array of buffer images
@@ -123,7 +125,7 @@ const bufferstoappend = async (buffers) => {
     const outputImgHeight = dimmention.outputImgHeight;
 
     const compositeParams = await Promise.allSettled(buffers.map(async (buffer, index) => {
-        const image = await sharp(buffer);
+        const image = sharp(buffer);
         const metadata = await image.metadata();
         const top = dimmention.dimmentions.slice(0, index).reduce((acc, item) => acc + item.height, 0);
 
@@ -151,7 +153,7 @@ const bufferstoappend = async (buffers) => {
 }
 
 /**
- * Asynchronous function that takes an array of buffers as an argument. 
+ * Asynchronous function that takes an array of buffers as an argument.
  * The function returns an object containing the following information:
  *  - outputImgWidth: the maximum width of all the images in the array.
  *  - outputImgHeight: the sum total of the heights of all the images in the array.
@@ -162,7 +164,7 @@ const bufferstoappend = async (buffers) => {
  */
 const getDimmentions = async (buffers) => {
     const promises = buffers.map(async (buffer) => {
-        const bufferImage = await sharp(buffer);
+        const bufferImage = sharp(buffer);
         const metadata = await bufferImage.metadata();
 
         return {
